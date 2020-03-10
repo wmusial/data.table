@@ -105,12 +105,6 @@ for (f in list.files('inst/tests', full.names = TRUE, pattern = 'Rraw')) {
     cat('Found T or F in', f, '\n\n')
     print(t[idx])
   }
-  idx = sapply(t, has_ifelse)
-  # TODO: add logic to escape the intentional ifelse usage in 2085.33
-  if (any(idx)) {
-    cat('Found ifelse in', f, '\n\n')
-    print(t[idx])
-  }
   if (f == 'inst/tests/benchmark.Rraw') next
   idx = sapply(t, has_system.time)
   # TODO: add logic to escape intentional system.time usage in 819, 820
